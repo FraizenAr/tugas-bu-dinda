@@ -9,9 +9,9 @@ $stok        = "";
 $is_edit     = false;
 $pesan       = "";
 
-// ==========================================
+
 // 1. PROSES TAMBAH DATA (INSERT)
-// ==========================================
+
 if (isset($_POST['simpan'])) {
     $id_barang   = trim($_POST['id_barang']);
     $nama_barang = trim($_POST['nama_barang']);
@@ -33,9 +33,9 @@ if (isset($_POST['simpan'])) {
     }
 }
 
-// ==========================================
+
 // 2. AMBIL DATA UNTUK DIEDIT (SELECT BY ID)
-// ==========================================
+
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $ambil = mysqli_query($koneksi, "SELECT * FROM barang_jualan WHERE id_barang = '$id'");
@@ -50,9 +50,9 @@ if (isset($_GET['edit'])) {
     }
 }
 
-// ==========================================
+
 // 3. PROSES SIMPAN PERUBAHAN (UPDATE)
-// ==========================================
+
 if (isset($_POST['update'])) {
     $id_barang   = trim($_POST['id_barang']);
     $nama_barang = trim($_POST['nama_barang']);
@@ -68,9 +68,9 @@ if (isset($_POST['update'])) {
     }
 }
 
-// ==========================================
+
 // 4. PROSES HAPUS DATA (DELETE - BONUS)
-// ==========================================
+
 if (isset($_GET['hapus'])) {
     $id_hapus = $_GET['hapus'];
     mysqli_query($koneksi, "DELETE FROM barang_jualan WHERE id_barang = '$id_hapus'");
@@ -196,11 +196,11 @@ if (isset($_GET['msg'])) {
         <!-- Menampilkan pesan notifikasi jika ada -->
         <?php echo $pesan; ?>
 
-        <!-- ============================================== -->
-        <!-- FORM INPUT / UBAH DATA                        -->
-        <!-- ============================================== -->
+
+        <!-- FORM INPUT / UBAH DATA-->
+       
         <div class="form-card">
-            <h2><?php echo $is_edit ? "✏️ Ubah Data Barang (" . htmlspecialchars($id_barang) . ")" : "➕ Tambah Barang Baru"; ?></h2>
+            <h2><?php echo $is_edit ? " Ubah Data Barang (" . htmlspecialchars($id_barang) . ")" : "Tambah Barang Baru"; ?></h2>
             <form action="barang.php" method="POST">
                 <div class="form-grid">
                     <div class="input-group">
@@ -233,9 +233,7 @@ if (isset($_GET['msg'])) {
             </form>
         </div>
 
-        <!-- ============================================== -->
-        <!-- TABEL DAFTAR BARANG                            -->
-        <!-- ============================================== -->
+        <!-- TABEL DAFTAR BARANG -->
         <h2>Daftar Barang</h2>
         <table>
             <thead>
